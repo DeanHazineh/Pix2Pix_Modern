@@ -1,4 +1,4 @@
-# Pix2Pix_Modern
+# Pix2Pix-Modern
 ## An updated and easy to use repository for training the Pix2Pix architecture in Pytorch
 
 Pix2Pix is a neural architecture published in CVPR 2017 by Phillip Isola et al, https://phillipi.github.io/pix2pix/. This architecture was the state-of-the-art for multi-modal image-to-image translation tasks for many years until the more recent introduction of denoising diffusion models. Despite this, these models are still fun to explore for various problems and serve as an important benchmark in comparative studies. This is my updated pytorch implementation that I hope may be useful to others. 
