@@ -1,0 +1,48 @@
+model:
+  target: pix2pix.model.Pix2Pix
+  params:
+    train_gen: True
+    train_disc: True
+    lambda_reg: 100
+
+    generator_config:
+      target: pix2pix.model.UNet
+      ckpt_path: None
+      params:
+        in_channels: 1
+        out_channels: 2
+
+    discriminator_config:
+      target: pix2pix.model.PatchEncoder
+      ckpt_path: None
+      params:
+        c_channels: 1
+        targ_channels: 2
+
+trainer:
+  target: pix2pix.trainer.Trainer_colorization
+  params:
+    xkey: "L"
+    ykey: "AB"
+    ckpt_path: "/home/deanhazineh/Downloads/Pix2Pix/Demo/train_out/"
+    batch_size: 8
+    max_steps: 300
+    lr: 1e-3
+    gradient_accumulation_steps: 1
+    snapshot_every_n: 10
+    disp_num_samples: 8
+    save_intermediate_ckpt: False
+    start_clean: False
+    skip_params: []
+    dl_workers: 4
+    dl_pin_mem: True
+    skip_valid_step: False
+    load_optimizer: True
+
+train_dataset:
+  target: pix2pix.data_demo.coco.COCO
+  params:
+    root_dir: "/home/deanhazineh/Downloads/Pix2Pix/pix2pix/data_demo/coco_2017_train_samples/"
+    train_fold: "COCO_2017_Train_Samples"
+    num_dat: -1
+    resize_to: [256, 256]

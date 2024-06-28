@@ -1,0 +1,10 @@
+matplotlib
+graphviz
+Pillow
+scikit-image
+opencv-python
+numpy
+tqdm
+torchview
+omegaconf
+einops
